@@ -237,6 +237,17 @@
           reportEventToAnalytics(msg);
         }
       </pre>
+        
+        <p>
+          For more time precision over task which take long amount of time to perform (long session eb apps),
+          A developer may compute a more accurate monotonic time by adding the {{Performance}}.{{Performance/now}}
+          to the {{Performance}}.{{Performance/timeOrigin}} attribute. 
+        </p>        
+        <pre class="example js">
+            var mark_start = performance.timeOrigin + performance.now();
+            doTask(); // Some task
+            var duration = performance.timeOrigin + performance.now() - mark_start;         
+        </pre>
       </section>
     </section>
     <section id="sec-concepts">
